@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateNetflix();
+        StartCoroutine(CreateNetflixRountine());
     }
 
     // Update is called once per frame
@@ -17,7 +17,15 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    
+
+    IEnumerator CreateNetflixRountine()
+    {
+        while(true)
+        {
+            CreateNetflix();
+            yield return new WaitForSeconds(1);
+        }
+    }
     private void CreateNetflix()
     {
         Vector3 pos = new Vector3(0, 6, 0);
